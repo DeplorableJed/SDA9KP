@@ -1,23 +1,23 @@
 {
   "id": "8b40e26d-9fc7-ea6a-64d5-9cb232e3838c",
-  "name": "dnac-nbapi-hello-network-env",
+  "name": "DNAC",
   "values": [
     {
       "enabled": true,
       "key": "dnac",
-      "value": "sandboxdnac.cisco.com",
+      "value": "10.10.10.204",
       "type": "text"
     },
     {
       "enabled": true,
       "key": "username",
-      "value": "devnetuser",
+      "value": "admin",
       "type": "text"
     },
     {
       "enabled": true,
       "key": "password",
-      "value": "Cisco123!",
+      "value": "ISEisC00L1",
       "type": "text"
     },
     {
