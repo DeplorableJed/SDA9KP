@@ -1,0 +1,229 @@
+{
+	"info": {
+		"_postman_id": "b4fe0020-c4c2-41fb-90b7-73fb0b6644c4",
+		"name": "DNAC Postman Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Token",
+			"item": [
+				{
+					"name": "https://{{dnac}}:{{port}}/dna/system/api/v1/auth/token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", data.Token);"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "{{username}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "string"
+								},
+								{
+									"key": "saveHelperData",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "showPassword",
+									"value": false,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "content-type",
+								"value": "application/json",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic YWRtaW46R3JhcGV2aW5lMQ=="
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{dnac}}:{{port}}/api/system/v1/auth/token",
+							"protocol": "https",
+							"host": [
+								"{{dnac}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"system",
+								"v1",
+								"auth",
+								"token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GET Examples",
+			"item": [
+				{
+					"name": "List Network Devices",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "{{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{dnac}}:{{port}}/dna/intent/api/v1/network-device",
+							"protocol": "https",
+							"host": [
+								"{{dnac}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"dna",
+								"intent",
+								"api",
+								"v1",
+								"network-device"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List a Network Device",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "{{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{dnac}}:{{port}}/dna/intent/api/v1/network-device?hostname=XXXXX",
+							"protocol": "https",
+							"host": [
+								"{{dnac}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"dna",
+								"intent",
+								"api",
+								"v1",
+								"network-device"
+							],
+							"query": [
+								{
+									"key": "hostname",
+									"value": "XXXXX"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Sites",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "{{token}}"
+							}
+						],
+						"url": {
+							"raw": "https://{{dnac}}:{{port}}/dna/intent/api/v1/site",
+							"protocol": "https",
+							"host": [
+								"{{dnac}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"dna",
+								"intent",
+								"api",
+								"v1",
+								"site"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List a Site",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "{{token}}"
+							}
+						],
+						"url": {
+							"raw": "https://{{dnac}}:{{port}}/dna/intent/api/v1/site?name=global/XXXXXX",
+							"protocol": "https",
+							"host": [
+								"{{dnac}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"dna",
+								"intent",
+								"api",
+								"v1",
+								"site"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "global/XXXXXX"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
